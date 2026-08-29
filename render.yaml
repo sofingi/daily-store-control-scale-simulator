@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: daily-store-control
+    runtime: docker
+    plan: starter
+    healthCheckPath: /_stcore/health
+    envVars:
+      - key: DSC_DB_PATH
+        value: /var/data/daily_store_control.db
+    disk:
+      name: daily-store-control-data
+      mountPath: /var/data
+      sizeGB: 1
